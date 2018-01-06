@@ -3,47 +3,66 @@ package com.example.models;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class Person {
+public class Person
+{
 
-	private String name;
+    private String name;
 
-	private int age;
+    private int age;
 
-	private Person() {
+    private Person()
+    {
 
-	}
+    }
 
-	private Person(PersonBuilder builder) {
-		this.name = builder.name;
-		this.age = builder.age;
+    private Person(PersonBuilder builder)
+    {
+        this.name = builder.name;
+        this.age = builder.age;
 
-	}
+    }
 
-	@Override
-	public String toString() {
-		return ReflectionToStringBuilder.toString(this, ToStringStyle.JSON_STYLE);
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public static class PersonBuilder {
+    public int getAge()
+    {
+        return age;
+    }
 
-		private String name;
+    @Override
+    public String toString()
+    {
+        return ReflectionToStringBuilder.toString(this,
+                ToStringStyle.JSON_STYLE);
+    }
 
-		private int age;
+    public static class PersonBuilder
+    {
 
-		public PersonBuilder name(String name) {
-			this.name = name;
-			return this;
-		}
+        private String name;
 
-		public PersonBuilder age(int age) {
-			this.age = age;
-			return this;
-		}
+        private int age;
 
-		public Person build() {
-			return new Person(this);
-		}
+        public PersonBuilder name(String name)
+        {
+            this.name = name;
+            return this;
+        }
 
-	}
+        public PersonBuilder age(int age)
+        {
+            this.age = age;
+            return this;
+        }
+
+        public Person build()
+        {
+            return new Person(this);
+        }
+
+    }
 
 }
