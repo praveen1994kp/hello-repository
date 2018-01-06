@@ -1,21 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.example</groupId>
-	<artifactId>hello-world</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Hello World</name>
-	<description>This is a simple maven project.</description>
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>hello-world</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>hello-world-realtime</artifactId>
+	<packaging>war</packaging>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.7</version>
+			<groupId>com.example</groupId>
+			<artifactId>hello-world-domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-	
-	<packaging>pom</packaging>
 
 	<build>
 		<plugins>
@@ -28,11 +28,15 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
-	<modules>
-		<module>hello-world-domain</module>
-		<module>hello-world-realtime</module>
-	</modules>
 </project>
