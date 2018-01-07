@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.domain.models;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

@@ -1,11 +1,11 @@
-package com.example.service;
+package com.example.domain.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.models.Person;
+import com.example.domain.models.Person;
 
 
 @Service

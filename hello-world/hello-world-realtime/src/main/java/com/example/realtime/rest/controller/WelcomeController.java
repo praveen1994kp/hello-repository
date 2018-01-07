@@ -1,4 +1,4 @@
-package com.example.rest.controller;
+package com.example.realtime.rest.controller;
 
 import java.util.List;
 
@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.client.PersonDTO;
-import com.example.models.Person;
-import com.example.service.PersonService;
+import com.example.domain.models.Person;
+import com.example.domain.service.PersonService;
 
 @RestController
+@RequestMapping(value="/welcome")
 public class WelcomeController
 {
     @Autowired

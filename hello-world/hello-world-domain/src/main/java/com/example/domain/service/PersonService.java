@@ -1,8 +1,8 @@
-package com.example.service;
+package com.example.domain.service;
 
 import java.util.List;
 
-import com.example.models.Person;
+import com.example.domain.models.Person;
 
 public interface PersonService
 {
