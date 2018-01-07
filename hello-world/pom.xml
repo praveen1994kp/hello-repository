@@ -38,6 +38,7 @@
 
 	<modules>
 		<module>hello-world-domain</module>
+		<module>hello-world-client</module>
 		<module>hello-world-realtime</module>
 	</modules>
 </project>
