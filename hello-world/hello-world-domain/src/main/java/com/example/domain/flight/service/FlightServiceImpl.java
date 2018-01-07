@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.domain.flight.config.FlightHostConfig;
 import com.example.domain.models.flight.Flight;
 
 @Service
@@ -19,17 +20,19 @@ public class FlightServiceImpl implements FlightService
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String AMERICAN_FLIGHTS_HOST = "http://training-american-ws.cloudhub.io";
-
-    private static final String FLIGHTS_PATH = "/api/flights";
+    @Autowired
+    private FlightHostConfig flightHostConfig;
 
     @SuppressWarnings("unchecked")
     @Override
     public List<Flight> getAllFlights()
     {
-        List<Flight> flightList = new ArrayList<Flight>(restTemplate
-                .getForObject(new StringBuilder().append(AMERICAN_FLIGHTS_HOST)
-                        .append(FLIGHTS_PATH).toString(), List.class));
+        String flightUri = new StringBuilder()
+                .append(flightHostConfig.getHost())
+                .append(flightHostConfig.getPath()).toString();
+        logger.info("Querying URI Path: " + flightUri);
+        List<Flight> flightList = new ArrayList<Flight>(
+                restTemplate.getForObject(flightUri, List.class));
         logger.info("Received Flights: " + flightList);
         return flightList;
 
