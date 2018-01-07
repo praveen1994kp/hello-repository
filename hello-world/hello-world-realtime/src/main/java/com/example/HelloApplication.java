@@ -1,5 +1,6 @@
 package com.example;
 
+import org.slf4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,20 +16,13 @@ import com.example.domain.models.Person;
 @Configuration
 public class HelloApplication
 {
+    
+    private static Logger logger = org.slf4j.LoggerFactory.getLogger(HelloApplication.class);
 
     public static void main(String[] args)
     {
+        logger.info("Starting Hello Application as Standalone App...");
         SpringApplication.run(HelloApplication.class, args);
-
-        System.out.println(sayHello("Harry"));
-        System.out.println(sayHello(new Person.PersonBuilder().name("James")
-                .age(35).build().toString()));
-
-    }
-
-    private static String sayHello(String name)
-    {
-        return "Hello " + name;
     }
 
 }
