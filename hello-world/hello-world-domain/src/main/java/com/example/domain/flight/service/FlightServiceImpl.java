@@ -19,7 +19,7 @@ public class FlightServiceImpl implements FlightService
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String americalFlightsHost = "http://training-american-ws.cloudhub.io";
+    private static final String AMERICAN_FLIGHTS_HOST = "http://training-american-ws.cloudhub.io";
 
     private static final String FLIGHTS_PATH = "/api/flights";
 
@@ -28,7 +28,7 @@ public class FlightServiceImpl implements FlightService
     public List<Flight> getAllFlights()
     {
         List<Flight> flightList = new ArrayList<Flight>(restTemplate
-                .getForObject(new StringBuilder().append(americalFlightsHost)
+                .getForObject(new StringBuilder().append(AMERICAN_FLIGHTS_HOST)
                         .append(FLIGHTS_PATH).toString(), List.class));
         logger.info("Received Flights: " + flightList);
         return flightList;
